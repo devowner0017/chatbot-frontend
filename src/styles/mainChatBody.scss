@@ -1,0 +1,23 @@
+.chat-body-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.user {
+    display: flex;
+    align-self: flex-end;
+    padding: 16px;
+    margin-left: 51px;
+    border-radius: 14px;
+    background-color: #2D9CDB;
+}
+
+.received {
+    display: flex;
+    align-self: flex-start;
+    padding: 16px;
+    margin-right: 51px;
+    border-radius: 14px;
+    background-color: #2A2A2A;
+}

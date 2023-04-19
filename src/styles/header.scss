@@ -15,7 +15,7 @@
     align-items: flex-end;
 }
 
-.left-header span {
+.left-header > span {
     font-weight: 700;
     font-size: 48.9287px;
     line-height: 48px;
@@ -27,6 +27,9 @@
 }
 
 @media screen and (max-width: 393px) {
+    .header-container {
+        height: 60px;
+    }
     .left-header span {
         font-size: 30.5804px;
         line-height: 30px;        

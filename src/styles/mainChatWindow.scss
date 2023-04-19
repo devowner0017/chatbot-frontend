@@ -10,9 +10,5 @@
 
 .chat-spacing {
     max-width: 663px;
-    height: 500px;
-}
-
-p {
-    height: 300px;
+    height: calc(100vh - 1000px);
 }

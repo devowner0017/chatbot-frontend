@@ -9,12 +9,6 @@ const MainChatWindow = () => {
             <div className="chat-spacing">
                 <MainChatHead />
                 <MainChatBody />
-                <p>Test</p>
-                <p>Test</p>
-                <p>Test</p>
-                <p>Test</p>
-                <p>Test</p>
-                <p>Test</p>
             </div>
         </div>
     );
