@@ -1,0 +1,18 @@
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-inline: 16px;
+    overflow-y: auto;
+}
+
+.chat-spacing {
+    max-width: 663px;
+    height: 500px;
+}
+
+p {
+    height: 300px;
+}
