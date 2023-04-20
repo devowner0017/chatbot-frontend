@@ -3,18 +3,27 @@ import '../styles/mainChatWindow.scss';
 import MainChatHead from "./MainChatHead";
 import MainChatBody from "./MainChatBody";
 import DisplayInsight from "./DisplayInsight";
+import Modal from 'react-modal';
 
 const MainChatWindow = () => {
     const [showInsight, setShowInsight] = useState(false)
+    function closeModal() {
+        setShowInsight(false);
+    }
 
     return (
         <div className="chat-container">
             <div className="chat-spacing">
-                <div className={showInsight ? "hide" : ""}>
                     <MainChatHead />
                     <MainChatBody setShowInsight={setShowInsight}/>
-                </div>
-                <DisplayInsight setShowInsight={setShowInsight} showInsight={showInsight}/>
+                <Modal
+                    isOpen={showInsight}
+                    onRequestClose={closeModal}
+                    overlayClassName="modal-overlay"
+                    className="modal"
+                >
+                    <DisplayInsight setShowInsight={setShowInsight} showInsight={showInsight}/>
+                </Modal>
             </div>
         </div>
     );

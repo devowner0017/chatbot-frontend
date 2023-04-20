@@ -1,14 +1,9 @@
 .insight-container {
     display: flex;
     flex-direction: column;
-    top: 0;
-    left: 0;
+    max-width: 663px;
     width: 100%;
     overflow-y: scroll;
-
-}
-.hide {
-    display: none;
 }
 
 .insight-top-menu {

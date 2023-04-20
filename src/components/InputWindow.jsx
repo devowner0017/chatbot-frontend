@@ -27,8 +27,7 @@ const InputWindow = ({props}) => {
                 <span />
                 <form onSubmit={e => { e.preventDefault(); }}>
                     <input 
-                        type='text' placeholder="Your answer..." 
-                        autoFocus 
+                        type='text' placeholder="Your answer..."  
                         value={props.input}
                         onChange={(e) => {props.setInput(e.target.value); displayText && setDisplayText(false)}}
                         onKeyDown={(e)=> handleKeypress(e)}

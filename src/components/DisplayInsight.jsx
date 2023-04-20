@@ -1,10 +1,9 @@
 import React from "react";
 import '../styles/displayInsight.scss';
 
-
-const DisplayInsight = ({setShowInsight, showInsight}) => {
+const DisplayInsight = ({setShowInsight}) => {
     return (
-        <div className={showInsight ? "insight-container" : "hide"}>
+        <div className={"insight-container"}> 
             <div className="insight-top-menu">
                 <img src="/icons/arrow-left-1.svg" alt='icon' onClick={() => setShowInsight(false)}/>
                 <p>Reader</p>
