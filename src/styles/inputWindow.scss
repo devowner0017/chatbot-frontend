@@ -2,11 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     padding-inline: 16px;
 }
 
 .input-section {
+    position: relative;
     display: flex;
     align-items: center;
     max-width: 528px;
@@ -64,6 +64,17 @@
     background: linear-gradient(180deg, #6700B7 0%, #3C006B 100%);
     margin-inline: 7px;
     cursor: pointer;
+}
+
+.headline-absolute {
+    position: absolute;
+    top: -60px;
+    left: 0;
+    
+    &> img {
+        margin-top: 5px;
+        margin-left: 15px;
+    }
 }
 
 @media screen and (max-width: 393px) {

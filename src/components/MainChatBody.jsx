@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import '../styles/mainChatBody.scss';
+import { ChatContext } from "./MainPage";
 
-const MainChatBody = () => {
-    const [currentChat, setCurrentChat] = useState([{id: 'user', text: 'Test text'}, {id: 'chat', text: 'Test text chat'}, {id: 'user', text: 'Test text 10'}])
+const MainChatBody = ({setShowInsight, showInsight}) => {
+    const currentChat = useContext(ChatContext);
 
     return (
         <div className="chat-body-container">
@@ -11,9 +12,12 @@ const MainChatBody = () => {
                     <div key={index} className={`${data.id!=='chat' ? 'user' : 'received'}`}>{data.text}</div>
                 ))
             }
-
+            {currentChat[currentChat.length-1].id==='user' && <div className='received pending' onClick={() => setShowInsight(true)}><span /><span /><span /></div>}
         </div>
     );
 }
  
 export default MainChatBody;
+
+
+

@@ -9,6 +9,11 @@
 }
 
 .chat-spacing {
+    position: relative;
     max-width: 663px;
     height: calc(100vh - 1000px);
+}
+
+.hide {
+    display: none;
 }
