@@ -1,0 +1,65 @@
+.modal-overlay-send {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+}
+
+.modal-send {
+    display: flex;
+    justify-content: center;
+    outline: none;
+    background-color: #2A2A2A;
+    border-radius: 15px;
+}
+
+.sign-in-modal-send {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 362px;
+    height: 148px;
+    border-radius: 15px;
+}
+
+.sign-in-modal-header-send {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 52px;
+    width: 100%;
+    background-color: #323639;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    &> img {
+        margin-left: 15px;
+        margin-right: 9px;
+    }
+    &> h1 {
+        font-family: 'Outfit';
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 23px;
+    }
+}
+
+.sign-in-modal-body-send {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    padding-inline: 8px;
+
+    &> p {
+        text-align: center;
+    }
+}

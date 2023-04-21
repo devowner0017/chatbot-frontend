@@ -4,35 +4,6 @@
     gap: 15px;
 }
 
-.modal-overlay-reg {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(3px);
-}
-
-.modal-reg {
-    display: flex;
-    justify-content: center;
-    outline: none;
-    background-color: #2A2A2A;
-    border-radius: 15px;
-}
-
-.sign-in-modal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 362px;
-    height: 193px;
-}
-
 .user {
     display: flex;
     align-self: flex-end;
