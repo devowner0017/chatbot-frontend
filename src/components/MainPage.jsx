@@ -3,6 +3,7 @@ import '../styles/mainPage.scss';
 import MainChatWindow from "./MainChatWindow";
 import Header from "./Header";
 import InputWindow from "./InputWindow";
+import BurgerMenuMain from "./burgerMenu/BurgerMenuMain";
 
 export const ChatContext = createContext();
 
@@ -15,7 +16,7 @@ const MainPage = () => {
         <ChatContext.Provider value={{currentChat, isBurgerOpen, setIsBurgerOpen}}>
             <div className="main-container">
                 <div className={`main-burger-display ${isBurgerOpen ? "" : 'main-burger-hidden'}`}> 
-                    Burger
+                    <BurgerMenuMain />
                 </div>
                 <div className="home-page-container">
                     <Header />

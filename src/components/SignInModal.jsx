@@ -21,7 +21,7 @@ const SignInModal = ({props}) => {
         >
             <div className="sign-in-modal">
                 <div className="sign-in-modal-header">
-                    <img src="/icons/mail-icon-1.svg" lt='icon'/>
+                    <img src="/icons/mail-icon-1.svg" alt='icon'/>
                     <h1>Sign in</h1>
                 </div>
                 <div className="sign-in-modal-body">

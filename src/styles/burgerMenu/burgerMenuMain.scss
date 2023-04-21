@@ -1,0 +1,13 @@
+.burger-menu-main {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 45px;
+    padding-top: 129px;
+    padding-bottom: 90px;
+}
+
+@media screen and (max-width: 393px) {
+    .burger-menu-main {
+        padding: 54px 45px 38px 16px;
+    }
+}

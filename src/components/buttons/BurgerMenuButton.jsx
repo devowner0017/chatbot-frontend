@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import '../styles/burgerMenu.scss';
-import { ChatContext } from "./MainPage";
+import '../../styles/buttons/burgerMenuButton.scss';
+import { ChatContext } from "../MainPage";
 
-const BurgerMenu = () => {
+const BurgerMenuButton = () => {
     const { isBurgerOpen, setIsBurgerOpen } = useContext(ChatContext);
 
     return (
@@ -14,4 +14,4 @@ const BurgerMenu = () => {
     );
 }
 
-export default BurgerMenu;
+export default BurgerMenuButton;
