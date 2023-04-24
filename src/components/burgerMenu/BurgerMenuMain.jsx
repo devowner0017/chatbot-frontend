@@ -1,25 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import '../../styles/burgerMenu/burgerMenuMain.scss'
 import BurgerMenuHeader from "./BurgerMenuHeader";
 import BurgerMenuInsights from "./BurgerMenuInsights";
 import BurgerMenuGuides from "./BurgerMenuGuides";
 import BurgerMenuSignIn from "./BurgerMenuSignIn";
+import { Context } from "../..";
+import { observer } from "mobx-react-lite";
 
-const BurgerMenuMain = () => {
-    const [isSignedIn, setIsSignedIn] = useState(false)
+const BurgerMenuMain = observer(() => {
+    const {user} = useContext(Context)
 
     return (
         <div className="burger-menu-main">
-            <BurgerMenuHeader props={{isSignedIn}}/>
-            <BurgerMenuInsights props={{isSignedIn}}/>
+            <BurgerMenuHeader />
+            <BurgerMenuInsights />
             {
-                isSignedIn ?
+                user.isAuth ?
                 <BurgerMenuGuides />
                 :
-                <BurgerMenuSignIn props={{isSignedIn, setIsSignedIn}}/>
+                <BurgerMenuSignIn />
             }
         </div>
     );
-}
+})
  
 export default BurgerMenuMain;

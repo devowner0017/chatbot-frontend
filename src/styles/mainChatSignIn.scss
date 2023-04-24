@@ -1,0 +1,66 @@
+.sign-in-main-chat-container{
+    display: flex;
+    justify-content: center;
+}
+
+.sign-in-main-chat {
+    display: flex;
+    flex-direction: column;
+    width: 426px;
+    height: 159px;
+    margin-bottom: 8px;
+    border-radius: 15px;
+    background-color: #2A2B2C;
+}
+
+.sign-in-main-chat-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+    padding-inline: 12px;
+    padding-bottom: 12px;
+    padding-top: 16px;
+
+    &> p {
+        font-family: 'Outfit';
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: #F0F0F0;
+        opacity: 0.85;
+    }
+}
+
+.sign-in-main-chat-form {
+    display: flex;
+    gap: 8px;
+
+    &> input {
+        background-color: #4E4E4E;
+        border-radius: 3px 3px 3px 10px;
+        height: 45px;
+        font-family: 'Outfit';
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: rgba(250, 250, 250, 0.5);
+        opacity: 0.85;
+        padding-left: 14.9px;
+    }
+    &> button {
+        min-width: 98px;
+        height: 45px;
+        border-radius: 3px 3px 10px 3px;
+        background-color: #171717;
+        font-family: 'Outfit';
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: #FFFFFF;
+        text-align: center;
+        color: white;
+    }
+}

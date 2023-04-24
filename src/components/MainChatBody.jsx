@@ -1,8 +1,13 @@
 import React, { useContext, useEffect, useRef } from "react";
 import '../styles/mainChatBody.scss';
 import { ChatContext } from "./MainPage";
+import InsightChatBody from "./InsightChatBody";
+import MainChatSignIn from "./MainChatSignIn";
+import { Context } from "..";
+import { observer } from "mobx-react-lite";
 
-const MainChatBody = ({setShowInsight}) => {
+const MainChatBody = observer(({setShowInsight}) => {
+    const {user} = useContext(Context)
     const { currentChat } = useContext(ChatContext);
     const chatLatestMessage = useRef()
     useEffect(() => {
@@ -14,15 +19,24 @@ const MainChatBody = ({setShowInsight}) => {
             <div className="chat-body-container">
                 {
                     currentChat.map((data, index) => (
-                        <div key={index} className={`${data.id!=='chat' ? 'user' : 'received'}`}>{data.text}</div>
+                        ((data.id ==='chat' || data.id ==='user') &&
+                        <div key={index} className={`${data.id!=='chat' ? 'user' : 'received'}`}>{data.text}</div>)
+                        ||
+                        (data.id ==='insight' &&
+                        <div key={index}>
+                            <div onClick={() => setShowInsight(true)}>
+                                <InsightChatBody />
+                            </div>
+                            {user.isAuth === false && <MainChatSignIn />}
+                        </div>)
                     ))
                 }
-                {currentChat[currentChat.length-1].id==='user' && <div className='received pending' onClick={() => setShowInsight(true)}><span /><span /><span /></div>}
+                {currentChat[currentChat.length-1].id==='user' && <div className='received pending'><span /><span /><span /></div>}
             </div>
             <div ref={chatLatestMessage}></div>
         </div>
     );
-}
+})
  
 export default MainChatBody;
 

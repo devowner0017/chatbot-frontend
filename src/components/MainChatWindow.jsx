@@ -19,6 +19,7 @@ const MainChatWindow = () => {
                 <Modal
                     isOpen={showInsight}
                     onRequestClose={closeModal}
+                    ariaHideApp={false}
                     overlayClassName="modal-overlay"
                     className="modal"
                 >

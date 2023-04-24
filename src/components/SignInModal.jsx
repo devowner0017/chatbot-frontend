@@ -16,6 +16,7 @@ const SignInModal = ({props}) => {
         <Modal
             isOpen={props.isSignInModalOpen}
             onRequestClose={closeModal}
+            ariaHideApp={false}
             overlayClassName="modal-overlay-reg"
             className="modal-reg"
         >

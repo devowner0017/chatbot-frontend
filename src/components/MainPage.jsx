@@ -8,7 +8,7 @@ import BurgerMenuMain from "./burgerMenu/BurgerMenuMain";
 export const ChatContext = createContext();
 
 const MainPage = () => {
-    const [currentChat, setCurrentChat] = useState([{id: 'user', text: 'Test text'}, {id: 'chat', text: 'Test text chat'}, {id: 'user', text: 'Test text 10'}])
+    const [currentChat, setCurrentChat] = useState([{id: 'user', text: 'Test text'}, {id: 'chat', text: 'Test text chat'}, {id: 'user', text: 'Test text 10'}, {id: 'insight', text: 'Test text 10'}])
     const [input, setInput] = useState('')
     const [isBurgerOpen, setIsBurgerOpen] = useState(false)
 

@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import '../../styles/burgerMenu/burgerMenuSignIn.scss'
+import { Context } from "../..";
 
-const BurgerMenuSignIn = ({props}) => {
+const BurgerMenuSignIn = () => {
     const [signInModalInput, setSignInModalInput] = useState('')
+    const {user} = useContext(Context)
 
     const onSend = () => {
-        props.setIsSignedIn(!props.isSignedIn)
+        user.setIsAuth(!user.isAuth)
     }
 
     return (
