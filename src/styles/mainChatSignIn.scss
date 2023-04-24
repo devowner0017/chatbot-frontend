@@ -6,8 +6,9 @@
 .sign-in-main-chat {
     display: flex;
     flex-direction: column;
-    width: 426px;
-    height: 159px;
+    max-width: 426px;
+    width: 100%;
+    min-height: 159px;
     margin-bottom: 8px;
     border-radius: 15px;
     background-color: #2A2B2C;

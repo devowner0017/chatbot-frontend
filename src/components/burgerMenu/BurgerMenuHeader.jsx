@@ -17,7 +17,7 @@ const BurgerMenuHeader = () => {
                 <p>The co-pilot for your career. Discover your path, shape your future. Choose your career with confidence.</p>
             </div>
             <img src="/icons/settings-1.svg" alt="icon" className={!user.isAuth && 'hide-settings'} onClick={() => setSettingsOpen(true)}/>
-            {/* <Modal
+            <Modal
                 isOpen={settingsOpen}
                 onRequestClose={closeModal}
                 ariaHideApp={false}
@@ -27,7 +27,7 @@ const BurgerMenuHeader = () => {
                 <div className="sign-in-modal-send">
                     <img src="/icons/settings-1.svg" alt="icon" className={!user.isAuth && 'hide-settings'}/>
                 </div>
-            </Modal> */}
+            </Modal>
         </div>
     );
 }

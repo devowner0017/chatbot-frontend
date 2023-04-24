@@ -21,5 +21,10 @@ body {
   overflow-x: clip;
   background-color: $base-background-color;
   color: $base-text-color;
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
 }
 
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none;
+}

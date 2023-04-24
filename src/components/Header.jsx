@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import '../styles/header.scss';
 import BurgerMenuButton from "./buttons/BurgerMenuButton";
 import SignInButton from "./buttons/SignInButton";
+import { Context } from "..";
+import { observer } from "mobx-react-lite";
 
-const Header = () => {
+const Header = observer(() => {
+    const {user} = useContext(Context)
+
     return (
         <div className="header-container">
             <div className="left-header">
@@ -11,10 +15,10 @@ const Header = () => {
                 <span>apt</span>
             </div>
             <div className="right-header">
-                <SignInButton />
+                {!user.isAuth && <SignInButton />}
             </div>
         </div>
     );
-}
+})
  
 export default Header;
