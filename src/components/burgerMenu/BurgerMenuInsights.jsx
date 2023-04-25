@@ -3,7 +3,7 @@ import '../../styles/burgerMenu/burgerMenuInsights.scss'
 import { Context } from "../..";
 
 const BurgerMenuInsights = () => {
-    const {user} = useContext(Context)
+    const {userState} = useContext(Context)
 
     return (
         <div className="burger-menu-insights-container">
@@ -12,21 +12,21 @@ const BurgerMenuInsights = () => {
                 <h1>Insights</h1>
             </div>
             <div className="burger-menu-insights-list">
-                <div className={`burger-menu-one-insight ${!user.isAuth && 'not-active'}`}>
+                <div className={`burger-menu-one-insight ${!userState.isAuth && 'not-active'}`}>
                     <img src="/images/img-1.jpg" alt="icon"/>
                     <div>
                         <h1>Personality</h1>
                         <h2>A new beginning</h2>
                     </div>
                 </div>
-                <div className={`burger-menu-one-insight ${!user.isAuth && 'not-active'}`}>
+                <div className={`burger-menu-one-insight ${!userState.isAuth && 'not-active'}`}>
                     <img src="/images/img-1.jpg" alt="icon"/>
                     <div>
                         <h1>Personality</h1>
                         <h2>A new beginning</h2>
                     </div>
                 </div>
-                <div className={`burger-menu-one-insight ${!user.isAuth && 'not-active'}`}>
+                <div className={`burger-menu-one-insight ${!userState.isAuth && 'not-active'}`}>
                     <img src="/images/img-1.jpg" alt="icon"/>
                     <div>
                         <h1>Personality</h1>

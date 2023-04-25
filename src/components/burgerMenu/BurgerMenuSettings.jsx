@@ -17,22 +17,3 @@ const BurgerMenuSettings = ({props}) => {
 }
  
 export default BurgerMenuSettings;
-
-// User:
-// {
-//     user_id: 456;
-//     chat_list: [123, 123];
-//     registration_date: new Date;
-//     insights: [];
-//     guides: [];
-//     staus: 'free/pro';
-// }
-
-// Chat:
-// {
-//     chat_id: 123;
-//     type: 'user/chat/insight/guides';
-//     content: {text: 'abc'};
-//     creation_date: new Date;
-// }
-

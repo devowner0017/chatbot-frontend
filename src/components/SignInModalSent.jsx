@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import Modal from 'react-modal';
 import '../styles/signInModalSent.scss';
+import { Context } from "..";
+import { observer } from "mobx-react-lite";
 
-const SignInModalSent = ({props}) => {
+const SignInModalSent = observer(() => {
+    const {appState} = useContext(Context)
+
     function closeModal() {
-        props.setIsSignInSentOpen(false);
+        appState.setSignInRequest(!appState.isSignInRequest)
     }
 
     return (
         <Modal
-            isOpen={props.isSignInSentOpen}
+            isOpen={appState.isSignInRequest}
             onRequestClose={closeModal}
             ariaHideApp={false}
             overlayClassName="modal-overlay-send"
@@ -26,6 +30,6 @@ const SignInModalSent = ({props}) => {
             </div>
         </Modal>
     );
-}
+})
  
 export default SignInModalSent;

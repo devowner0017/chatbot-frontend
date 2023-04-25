@@ -6,7 +6,7 @@ import { Context } from "..";
 import { observer } from "mobx-react-lite";
 
 const Header = observer(() => {
-    const {user} = useContext(Context)
+    const {userState} = useContext(Context)
 
     return (
         <div className="header-container">
@@ -15,7 +15,7 @@ const Header = observer(() => {
                 <span>apt</span>
             </div>
             <div className="right-header">
-                {!user.isAuth && <SignInButton />}
+                {!userState.isAuth && <SignInButton />}
             </div>
         </div>
     );

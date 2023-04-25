@@ -7,7 +7,7 @@ import { Context } from "..";
 import { observer } from "mobx-react-lite";
 
 const MainChatBody = observer(({setShowInsight}) => {
-    const {user} = useContext(Context)
+    const {userState} = useContext(Context)
     const { currentChat } = useContext(ChatContext);
     const chatLatestMessage = useRef()
     useEffect(() => {
@@ -27,7 +27,7 @@ const MainChatBody = observer(({setShowInsight}) => {
                             <div onClick={() => setShowInsight(true)}>
                                 <InsightChatBody />
                             </div>
-                            {user.isAuth === false && <MainChatSignIn />}
+                            {userState.isAuth === false && <MainChatSignIn />}
                         </div>)
                     ))
                 }

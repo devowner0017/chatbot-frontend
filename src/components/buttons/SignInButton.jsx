@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import '../../styles/buttons/signInButton.scss';
 import SignInModal from "../SignInModal";
 import SignInModalSent from "../SignInModalSent";
+import { observer } from "mobx-react-lite";
 
-const SignInButton = () => {
-    const [isSignInSentOpen, setIsSignInSentOpen] = useState(false)
+const SignInButton = observer(() => {
     const [isSignInModalOpen, setIsSignInModalOpen] = useState(false)
     const [signInModalInput, setSignInModalInput] = useState('')
 
@@ -13,10 +13,10 @@ const SignInButton = () => {
             <button className="sign-in-button" onClick={() => setIsSignInModalOpen(true)}>
                 Sign-in
             </button>
-            <SignInModal props={{isSignInModalOpen, setIsSignInModalOpen, signInModalInput, setSignInModalInput, setIsSignInSentOpen}}/>
-            <SignInModalSent props={{isSignInSentOpen, setIsSignInSentOpen}}/>
+            <SignInModal props={{isSignInModalOpen, setIsSignInModalOpen, signInModalInput, setSignInModalInput}}/>
+            <SignInModalSent />
         </div>
     );
-}
+})
  
 export default SignInButton;

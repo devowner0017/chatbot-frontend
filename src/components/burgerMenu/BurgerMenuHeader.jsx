@@ -3,7 +3,7 @@ import '../../styles/burgerMenu/burgerMenuHeader.scss'
 import { Context } from "../..";
 
 const BurgerMenuHeader = ({setSettingsOpen}) => {
-    const {user} = useContext(Context)
+    const {userState} = useContext(Context)
 
     return (
         <div className="burger-menu-header-container">
@@ -11,7 +11,7 @@ const BurgerMenuHeader = ({setSettingsOpen}) => {
                 <h1>My Journey</h1>
                 <p>The co-pilot for your career. Discover your path, shape your future. Choose your career with confidence.</p>
             </div>
-            <img src="/icons/settings-1.svg" alt="icon" className={!user.isAuth && 'hide-settings'} onClick={() => setSettingsOpen(true)}/>
+            <img src="/icons/settings-1.svg" alt="icon" className={!userState.isAuth ? 'hide-settings' : ''} onClick={() => setSettingsOpen(true)}/>
         </div>
     );
 }

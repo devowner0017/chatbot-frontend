@@ -9,16 +9,15 @@ import { Context } from "../..";
 import { observer } from "mobx-react-lite";
 
 const BurgerMenuMain = observer(() => {
-    const {user} = useContext(Context)
+    const {userState} = useContext(Context)
     const [settingsOpen, setSettingsOpen] = useState(false)
     
-
     return (
         <div className="burger-menu-main">
             <BurgerMenuHeader setSettingsOpen={setSettingsOpen}/>
             <BurgerMenuInsights />
             {
-                user.isAuth ?
+                userState.isAuth ?
                 <BurgerMenuGuides />
                 :
                 <BurgerMenuSignIn />
