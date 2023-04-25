@@ -58,3 +58,13 @@
     background-color: #2A2A2A;
     border-radius: 15px;
 }
+
+
+@media screen and (max-width: 393px) {
+    .burger-menu-header-container {    
+        &> img {
+            top: 13px;
+            left: 290px;
+        }
+    }
+}

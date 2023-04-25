@@ -18,7 +18,7 @@ const MainPage = () => {
                 <div className={`main-burger-display ${isBurgerOpen ? "" : 'main-burger-hidden'}`}> 
                     <BurgerMenuMain />
                 </div>
-                <div className="home-page-container">
+                <div className={`home-page-container ${isBurgerOpen ? "home-page-hidden" : ''}`} >
                     <Header />
                     <MainChatWindow />
                     <InputWindow props={{currentChat, setCurrentChat, input, setInput}}/>
