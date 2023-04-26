@@ -15,7 +15,9 @@ const BurgerMenuSignIn = observer(() => {
     useEffect(() => {
         console.log(`useEffect user check start + ${localStorage.getItem('userEmail')}`)
         if (user) {
-            userState.setIsAuth(!userState.isAuth)
+            userState.setIsAuth(!userState.isAuth) 
+            userState.setUserId(user.uid)
+            console.log(userState.userId)
         } else {
             if (isSignInWithEmailLink(auth, window.location.href)){
                 let email = localStorage.getItem('userEmail')
@@ -24,7 +26,7 @@ const BurgerMenuSignIn = observer(() => {
                 }
                 signInWithEmailLink(auth, localStorage.getItem('userEmail'), window.location.href)
                 .then((result) => {
-                    console.log(result.user)
+                    console.log(`} else { ` + result.uid)
                     localStorage.removeItem('userEmail')
                     userState.setIsAuth(!userState.isAuth)
                 })

@@ -16,7 +16,6 @@ const SignInModal = observer(({props}) => {
     }
 
     useEffect(() => {
-        console.log(`useEffect user check start + ${localStorage.getItem('userEmail')}`)
         if (user) {
             userState.setIsAuth(!userState.isAuth)
         } else {
@@ -27,7 +26,7 @@ const SignInModal = observer(({props}) => {
                 }
                 signInWithEmailLink(auth, localStorage.getItem('userEmail'), window.location.href)
                 .then((result) => {
-                    console.log(result.user)
+                    console.log(`} else { ` + result.uid)
                     localStorage.removeItem('userEmail')
                     userState.setIsAuth(!userState.isAuth)
                 })

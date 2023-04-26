@@ -22,7 +22,7 @@ const MainChatSignIn = () => {
                 }
                 signInWithEmailLink(auth, localStorage.getItem('userEmail'), window.location.href)
                 .then((result) => {
-                    console.log(result.user)
+                    console.log(`} else { ` + result.uid)
                     localStorage.removeItem('userEmail')
                     userState.setIsAuth(!userState.isAuth)
                 })
