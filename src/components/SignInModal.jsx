@@ -1,42 +1,21 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Modal from 'react-modal';
 import '../styles/signInModal.scss';
 import { Context } from "..";
-import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebase";
-import { isSignInWithEmailLink, sendSignInLinkToEmail, signInWithEmailLink } from "firebase/auth";
+import { sendSignInLinkToEmail } from "firebase/auth";
 import { observer } from "mobx-react-lite";
 
 const SignInModal = observer(({props}) => {
-    const {appState, userState} = useContext(Context)
-    const [user] = useAuthState(auth)
+    const {appState} = useContext(Context)
 
     function closeModal() {
         props.setIsSignInModalOpen(false);
     }
 
-    useEffect(() => {
-        if (user) {
-            userState.setIsAuth(!userState.isAuth)
-        } else {
-            if (isSignInWithEmailLink(auth, window.location.href)){
-                let email = localStorage.getItem('userEmail')
-                if (!email) {
-                    email = window.prompt('Please provide your email')
-                }
-                signInWithEmailLink(auth, localStorage.getItem('userEmail'), window.location.href)
-                .then((result) => {
-                    console.log(`} else { ` + result.uid)
-                    localStorage.removeItem('userEmail')
-                    userState.setIsAuth(!userState.isAuth)
-                })
-                .catch((err) => console.log(err.message))
-            }
-        }
-    },[user])
-
     const onSend = async (e) => {
         e.preventDefault()
+        // open/close modal windows
         appState.setSignInRequest(true)
         props.setIsSignInModalOpen(false);
         sendSignInLinkToEmail(auth, props.signInModalInput, {

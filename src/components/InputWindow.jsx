@@ -1,11 +1,55 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import '../styles/inputWindow.scss';
+import { Context } from "..";
+import { sendMessageNotRegisteredUser, sendMessageRegisteredUser } from "../api/messageAPI";
 
-const InputWindow = ({props}) => {
+const InputWindow = () => {
+    const {userState} = useContext(Context)
     const [displayText, setDisplayText] = useState(true)
+    const [input, setInput] = useState('')
+
     const sendText = () => {
-        props.setCurrentChat([...props.currentChat, {id: 'user', text: `${props.input}`}])
-        props.setInput('')
+        if (userState.isAuth===true && input.length) {
+            userState.setUserChatHistory([
+                ...userState.userChatHistory, 
+                {
+                    message_id: userState.userChatHistory.length,
+                    message_type: 'user',
+                    message_text: input,
+                    created_at: '',
+                }
+            ])
+            sendMessageRegisteredUser(userState.userId, input)
+            setInput('')
+        }
+        else if (userState.isAuth===false && input.length) {
+            userState.setUserChatHistory([
+                ...userState.userChatHistory, 
+                {
+                    message_id: userState.userChatHistory.length,
+                    message_type: 'user',
+                    message_text: input,
+                    created_at: new Date(),
+                }
+            ])
+            sendMessageNotRegisteredUser(input)
+            .then((res) => { 
+                if (res.chat === "Chat Response") {
+                    userState.setUserChatHistory([
+                        ...userState.userChatHistory, 
+                        {
+                            message_id: userState.userChatHistory.length,
+                            message_type: 'chat',
+                            message_text: res.chat,
+                            created_at: new Date(),
+                        }
+                    ])
+                };
+                localStorage.setItem('userChatHistory', JSON.stringify(userState.userChatHistory));
+            })
+            localStorage.setItem('userChatHistory', JSON.stringify(userState.userChatHistory));
+            setInput('')
+        }
     }
 
     const handleKeypress = (e) => {
@@ -28,8 +72,8 @@ const InputWindow = ({props}) => {
                 <form onSubmit={e => { e.preventDefault(); }}>
                     <input 
                         type='text' placeholder="Your answer..."  
-                        value={props.input}
-                        onChange={(e) => {props.setInput(e.target.value); displayText && setDisplayText(false)}}
+                        value={input}
+                        onChange={(e) => {setInput(e.target.value); displayText && setDisplayText(false)}}
                         onKeyDown={(e)=> handleKeypress(e)}
                     />
                 </form>

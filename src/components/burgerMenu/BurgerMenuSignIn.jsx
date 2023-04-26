@@ -1,42 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import '../../styles/burgerMenu/burgerMenuSignIn.scss'
 import { Context } from "../..";
 import auth from "../../firebase";
-import { useAuthState } from "react-firebase-hooks/auth"
-import { isSignInWithEmailLink, sendSignInLinkToEmail, signInWithEmailLink } from "firebase/auth";
+import { sendSignInLinkToEmail } from "firebase/auth";
 import { observer } from "mobx-react-lite";
 
 const BurgerMenuSignIn = observer(() => {
     const [signInModalInput, setSignInModalInput] = useState('')
-    const {userState, appState} = useContext(Context)
-
-    const [user] = useAuthState(auth)
-
-    useEffect(() => {
-        console.log(`useEffect user check start + ${localStorage.getItem('userEmail')}`)
-        if (user) {
-            userState.setIsAuth(!userState.isAuth) 
-            userState.setUserId(user.uid)
-            console.log(userState.userId)
-        } else {
-            if (isSignInWithEmailLink(auth, window.location.href)){
-                let email = localStorage.getItem('userEmail')
-                if (!email) {
-                    email = window.prompt('Please provide your email')
-                }
-                signInWithEmailLink(auth, localStorage.getItem('userEmail'), window.location.href)
-                .then((result) => {
-                    console.log(`} else { ` + result.uid)
-                    localStorage.removeItem('userEmail')
-                    userState.setIsAuth(!userState.isAuth)
-                })
-                .catch((err) => console.log(err.message))
-            }
-        }
-    },[user])
+    const {appState} = useContext(Context)
 
     const onSend = async (e) => {
         e.preventDefault()
+        // open/close modal windows
         appState.setSignInRequest(true)
         sendSignInLinkToEmail(auth, signInModalInput, {
             url: 'http://localhost:3000',
