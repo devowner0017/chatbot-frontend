@@ -37,7 +37,11 @@ const MainPage = observer(() => {
             .then(res => {
                 if (res.chatHistory === "No chat history") {
                     if(localStorage.getItem('userChatHistory')) {
-                        saveChatHistory(userState.userId, localStorage.getItem('userChatHistory'))
+                        saveChatHistory(userState.userId, JSON.parse(localStorage.getItem('userChatHistory')))
+                        .then((data) => {
+                            userState.setUserChatHistory([...data.createChat])
+                            localStorage.setItem('userChatHistory', JSON.stringify(userState.userChatHistory));
+                        })
                     }
                 } else {
                     userState.setUserChatHistory(res.chatHistory)
