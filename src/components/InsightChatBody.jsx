@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/insightChatBody.scss';
 
-const InsightChatBody = () => {
+const InsightChatBody = ({text}) => {
     return (
         <div className="insight-chat-body-container">
             <div className="insight-chat-body-main">
@@ -10,7 +10,7 @@ const InsightChatBody = () => {
                         <img src="/images/img-1.jpg" alt="icon"/>
                     </div>
                     <h1>Career opportunities</h1>
-                    <p>Taking into consideration the diverse passions and perspectives you've shared, it becomes clear that as an individual, you embody the following traits...</p>
+                    <p>{text}</p>
                 </div>
                 <div className="insight-chat-body-footer">
                     <img src="/icons/check-circle-1.svg" alt="icon"/>

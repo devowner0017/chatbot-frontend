@@ -17,20 +17,20 @@ const MainChatBody = observer(({setShowInsight}) => {
         <div>
             <div className="chat-body-container">
                 {
-                    userState.userChatHistory.map((data, index) => (
+                    userState.userChatHistory.length && userState.userChatHistory?.map((data, index) => (
                         ((data.message_type ==='chat' || data.message_type ==='user') &&
                         <div key={index} className={`${data.message_type!=='chat' ? 'user' : 'received'}`}>{data.message_text}</div>)
                         ||
                         (data.message_type ==='insight' &&
                         <div key={index}>
                             <div onClick={() => setShowInsight(true)}>
-                                <InsightChatBody />
+                                <InsightChatBody text={data.message_text}/>
                             </div>
                             {userState.isAuth === false && <MainChatSignIn />}
                         </div>)
                     ))
                 }
-                {userState.userChatHistory[userState.userChatHistory.length-1].message_type==='user' && <div className='received pending'><span /><span /><span /></div>}
+                {userState.userChatHistory[userState.userChatHistory?.length-1]?.message_type==='user' && <div className='received pending'><span /><span /><span /></div>}
             </div>
             <div ref={chatLatestMessage}></div>
         </div>
