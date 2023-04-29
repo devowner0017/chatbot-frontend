@@ -5,9 +5,15 @@ import MainChatSignIn from "./MainChatSignIn";
 import { Context } from "..";
 import { observer } from "mobx-react-lite";
 
-const MainChatBody = observer(({setShowInsight}) => {
-    const {userState} = useContext(Context)
+const MainChatBody = observer(() => {
+    const {userState, insightsState} = useContext(Context)
+
     const chatLatestMessage = useRef()
+
+    const openInsight = (id) => {
+        insightsState.setInsightIdDisplay(id)
+        insightsState.setDisplayInsight(true);
+    }
 
     useEffect(() => {
         chatLatestMessage.current.scrollIntoView({ behavior: "smooth" })
@@ -23,7 +29,7 @@ const MainChatBody = observer(({setShowInsight}) => {
                         ||
                         (data.message_type ==='insight' &&
                         <div key={index}>
-                            <div onClick={() => setShowInsight(true)}>
+                            <div onClick={() => openInsight(data.message_id)}>
                                 <InsightChatBody text={data.message_text}/>
                             </div>
                             {userState.isAuth === false && <MainChatSignIn />}

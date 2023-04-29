@@ -35,6 +35,53 @@
     height: 100%;
 }
 
+.burger-settings-form-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding-inline: 47px;
+    padding-top: 17px;
+}
+
+.burger-settings-form-body {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.burger-settings-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+    &> label {
+        font-family: 'Outfit';
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: #F0F0F0;
+        margin-bottom: 8px;
+    }
+
+    &> input {
+        background-color: #2A2A2A;
+        border-radius: 14px;
+        height: 45px;
+        font-family: 'Outfit';
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: #F0F0F0;
+        opacity: 0.85;
+        padding-left: 12px;
+        margin-bottom: 26px;
+        ::placeholder {
+            color: rgba(170, 170, 170, 0.5);
+        }
+    }
+}
+
 @media screen and (max-width: 393px) {
     .burger-menu-settings-header {
         display: flex;
@@ -66,5 +113,9 @@
         height: 100%;
         background: rgba(18, 18, 18, 0.8);
         backdrop-filter: blur(12px);
+    }
+
+    .burger-settings-form-container {
+        padding-inline: 16px;
     }
 }

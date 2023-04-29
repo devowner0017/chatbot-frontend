@@ -12,14 +12,26 @@ import { observer } from "mobx-react-lite";
 import { Context } from "..";
 import { saveChatHistory } from "../api/messageAPI";
 import { getQuestionnaire } from "../api/questionnaireAPI";
+import { toJS } from "mobx";
 
 export const ChatContext = createContext();
 
 const MainPage = observer(() => {
     const [isBurgerOpen, setIsBurgerOpen] = useState(false)
 
-    const {userState} = useContext(Context)
+    const {userState, insightsState} = useContext(Context)
     const [user] = useAuthState(auth)
+
+    //Keep track of new insights
+    useEffect(() => {
+        const globalInsights = [];
+        toJS(userState.userChatHistory).map(message => {
+            if (message.message_type==='insight') {
+                globalInsights.push(message)
+            }
+        })
+        insightsState.setInsightsList([...globalInsights])
+    }, [userState.userChatHistory])
 
     //If user not registerd we get his last chat history from local storage
     useEffect(() => {
@@ -58,14 +70,10 @@ const MainPage = observer(() => {
         }
         //If we started our Questionnaire and user is registered - get his question history from the backend
         if (userState.isUserDbTableCreated===true && userState.isIntroductionQuestion === true) {
-            console.log('userState.isUserDbTableCreated' + userState.isUserDbTableCreated)
             getUserQuestionHistory(userState.userId).then(res => {
                 userState.setIntroductionQuestionList(res.questionnaire)
                 userState.setIntroductionQuestionNumber(res.introductionQuestionNumber)
                 userState.setIsIntroductionQuestion(JSON.parse(res.isIntroductionQuestion))
-                console.log(res.introductionQuestionNumber)
-                console.log(res.isIntroductionQuestion)
-                console.log(res.questionnaire)
             })
         }
         // createQuestionnaire('q1', ['Question1', 'Question2', 'Question3'])

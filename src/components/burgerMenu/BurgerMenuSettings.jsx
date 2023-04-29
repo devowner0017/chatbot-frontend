@@ -1,5 +1,6 @@
 import React from "react";
 import '../../styles/burgerMenu/burgerMenuSettings.scss'
+import SettingsForm from "./SettingsForm";
 
 const BurgerMenuSettings = ({props}) => {
     return (
@@ -10,7 +11,7 @@ const BurgerMenuSettings = ({props}) => {
                 <div></div>
             </div>
             <div className="burger-menu-settings-body">
-                Body
+                <SettingsForm />
             </div>
         </div>
     );

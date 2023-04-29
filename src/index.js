@@ -4,6 +4,7 @@ import './index.scss';
 import App from './App';
 import UserStore from './store/UserStore';
 import ApplicationStore from './store/ApplicationStore';
+import InsightsStore from './store/InsightsStore';
 
 export const Context = createContext(null)
 
@@ -11,7 +12,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Context.Provider value={{
     userState: new UserStore(),
-    appState: new ApplicationStore()
+    appState: new ApplicationStore(),
+    insightsState: new InsightsStore()
   }}>
     <React.StrictMode>
       <App />
