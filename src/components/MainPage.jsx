@@ -22,7 +22,7 @@ const MainPage = observer(() => {
     const {userState, insightsState} = useContext(Context)
     const [user] = useAuthState(auth)
 
-    //Keep track of new insights
+    //Keep track of new insights and store them in separate State
     useEffect(() => {
         const globalInsights = [];
         toJS(userState.userChatHistory).map(message => {

@@ -1,6 +1,5 @@
 import { makeAutoObservable } from "mobx";
-// setShowInsight
-//showInsight
+
 export default class InsightsStore {
     constructor() {
         this.insights_list = [];

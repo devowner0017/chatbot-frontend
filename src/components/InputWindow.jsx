@@ -158,7 +158,7 @@ const InputWindow = () => {
             setInput('')
         }
 
-        //If user not registered and completed questionary
+        //If user is not registered and completed questionary
         //For now if you're not registered you can not chat with chatGPT bot
         //That's why responsible for that logic below is commented out
         else if (userState.isAuth===false && input.length && !userState.isIntroductionQuestion) {
@@ -201,7 +201,7 @@ const InputWindow = () => {
                     </div>
                 }
                 <span />
-                <form onSubmit={e => { e.preventDefault(); }}>
+                <form onSubmit={e => { e.preventDefault() }}>
                     <input 
                         type='text' placeholder="Your answer..."  
                         value={input}
