@@ -6,17 +6,17 @@ import auth from "../firebase";
 
 const MainChatSignIn = () => {
     const [signInModalInput, setSignInModalInput] = useState('')
-    const {appState} = useContext(Context)
+    const { appState } = useContext(Context)
 
     const onSend = async (e) => {
         e.preventDefault()
         // open/close modal windows
         appState.setSignInRequest(true)
         sendSignInLinkToEmail(auth, signInModalInput, {
-            url: 'http://localhost:3000',
+            url: process.env.REACT_APP_BACKEND_URL,
             handleCodeInApp: true,
         })
-        .then(()=> localStorage.setItem('userEmail', signInModalInput))
+            .then(() => localStorage.setItem('userEmail', signInModalInput))
     }
 
     return (
@@ -25,11 +25,11 @@ const MainChatSignIn = () => {
                 <div className="sign-in-main-chat-body">
                     <p>Save your personalized insights and recommendations. Get advice on how to pursue a meaningful, fulfilling life. Save your progress.</p>
                     <form onSubmit={onSend} className="sign-in-main-chat-form">
-                        <input 
+                        <input
                             type="email" placeholder="Your E-mail"
                             required
                             value={signInModalInput}
-                            onChange={(e) => {setSignInModalInput(e.target.value)}}
+                            onChange={(e) => { setSignInModalInput(e.target.value) }}
                         />
                         <button className="sign-in-main-chat-button">
                             Save
