@@ -1,5 +1,5 @@
 .main-container {
-    display: flex; 
+    display: flex;
 }
 
 .main-burger-display {
@@ -12,24 +12,24 @@
 }
 
 .main-burger-hidden {
-    width: 0; 
+    width: 0;
     padding: 0;
     overflow: hidden;
 }
 
 .home-page-container {
-    display: flex; 
+    display: flex;
     flex-direction: column;
     min-height: 100vh;
     width: 100%;
 }
 
-@media screen and (max-width: 393px) {
+@media screen and (max-width: 433px) {
     .home-page-hidden {
-        width: 40px;
+        width: 50px;
         overflow: hidden;
         transition: all 0.4s ease-in-out;
-      }
+    }
 }
 
 
@@ -37,7 +37,7 @@
 //     display: flex;
 //     overflow: hidden; // hides the part of the right child that goes beyond the screen boundary
 //   }
-  
+
 //   .main-burger-display {
 //     display: flex;
 //     max-width: 382px;
@@ -46,7 +46,7 @@
 //     transform: translateX(-382px); // starts the left child off-screen to the left
 //     transition: transform 0.5s ease-in-out; // transition for transform change
 //   }
-  
+
 //   .home-page-container {
 //     display: flex; 
 //     flex-direction: column;
@@ -55,14 +55,14 @@
 //     transform: translateX(-382px);
 //     transition: transform 0.5s ease-in-out; // transition for transform change
 //   }
-  
+
 //   .main-burger-hidden {
 //     transform: translateX(382px);
 //     //     width: 0; 
 // //     padding: 0;
 // //     overflow: hidden; // when showing the left child, slide it in from the left
 //   }
-  
+
 //   .home-page-hidden {
 //     transform: translateX(382px); // when hiding the left child, push the right child out of screen boundary
 //   }
