@@ -89,7 +89,7 @@ const MainPage = observer(() => {
             checkUser(user.uid, user.email)
             .then(res => {
                 if (res.chatHistory === "No chat history") {
-                    //If user has no saved chat on the backend but has chat history on the frontend that needs to be saved
+                    //If user has no saved chat on the backend but there is chat history on the frontend that needs to be saved
                     if(localStorage.getItem('userChatHistory')) {
                         saveChatHistory(userState.userId, JSON.parse(localStorage.getItem('userChatHistory')))
                         .then((data) => {
@@ -100,8 +100,9 @@ const MainPage = observer(() => {
                         .then(() => userState.setIsUserDbTableCreated(true))
                         
                     }
-                    //If user has neather saved chat on the backend nor started to chat on the frontend but his user was alredy created
+                    //If user has saved chat history on the backend - display it
                 } else {
+                    userState.setUserChatHistory(res.chatHistory)
                     userState.setIsUserDbTableCreated(true)
                 }
             })
