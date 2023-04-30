@@ -13,6 +13,7 @@ REACT_APP_BACKEND_URL='http://localhost:3000/'
 npm i
 npm start
 
+
 Приложение состоит из 4-х основных частей:
 Бургер меню - BurgerMenuMain.jsx
 Хедер - Header.jsx
