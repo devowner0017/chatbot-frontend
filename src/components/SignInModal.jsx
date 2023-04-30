@@ -19,7 +19,7 @@ const SignInModal = observer(({ props }) => {
         appState.setSignInRequest(true)
         props.setIsSignInModalOpen(false);
         sendSignInLinkToEmail(auth, props.signInModalInput, {
-            url: process.env.REACT_APP_BACKEND_URL,
+            url: process.env.REACT_APP_FRONTEND_URL,
             handleCodeInApp: true,
         })
             .then(() => localStorage.setItem('userEmail', props.signInModalInput))

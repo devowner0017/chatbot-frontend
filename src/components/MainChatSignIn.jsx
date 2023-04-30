@@ -13,7 +13,7 @@ const MainChatSignIn = () => {
         // open/close modal windows
         appState.setSignInRequest(true)
         sendSignInLinkToEmail(auth, signInModalInput, {
-            url: process.env.REACT_APP_BACKEND_URL,
+            url: process.env.REACT_APP_FRONTEND_URL,
             handleCodeInApp: true,
         })
             .then(() => localStorage.setItem('userEmail', signInModalInput))
