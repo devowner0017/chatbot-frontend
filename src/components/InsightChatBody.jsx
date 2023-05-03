@@ -1,20 +1,24 @@
 import React from "react";
 import '../styles/insightChatBody.scss';
 
-const InsightChatBody = ({text}) => {
+const InsightChatBody = ({text, type}) => {
     return (
         <div className="insight-chat-body-container">
             <div className="insight-chat-body-main">
                 <div className="insight-chat-body-header">
                     <div className="insight-chat-body-img">
-                        <img src="/images/img-1.jpg" alt="icon"/>
+                        {type === 0 && <img src="/images/img-1.svg" alt="icon"/> }
+                        {type === 1 && <img src="/images/img-2.svg" alt="icon"/> }
+                        {type === 2 && <img src="/images/img-3.svg" alt="icon"/> }
                     </div>
-                    <h1>Career opportunities</h1>
-                    <p>{text}</p>
+                    {type === 0 && <h1>Personality insight</h1>}
+                    {type === 1 && <h1>Work life</h1>}
+                    {type === 2 && <h1>Career opportunities</h1>}
+                    <p>{text.length > 600 ? text.slice(0, 600) + '...' : text}</p>
                 </div>
                 <div className="insight-chat-body-footer">
                     <img src="/icons/check-circle-1.svg" alt="icon"/>
-                    <p>Saved</p>
+                    <p className="m-0">Saved</p>
                 </div>
             </div>
         </div>

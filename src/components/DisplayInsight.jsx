@@ -23,13 +23,17 @@ const DisplayInsight = observer(() => {
                 <img src="/icons/check-circle-1.svg" alt='icon'/>
             </div>
             <div className="insight-content">
-                <img src="/images/img-1.jpg" alt='icon'/>
+                {insightsState.insightIdDisplay === 0 && <img src="/images/img-1.svg" alt='icon'/>}
+                {insightsState.insightIdDisplay === 1 && <img src="/images/img-2.svg" alt='icon'/>}
+                {insightsState.insightIdDisplay === 2 && <img src="/images/img-3.svg" alt='icon'/>}
                 <div className="insight-text-area">
                     <h5>Career</h5>
-                    <h1>Work life</h1>
+                    {insightsState.insightIdDisplay === 0 && <h1>Personality insight</h1>}
+                    {insightsState.insightIdDisplay === 1 && <h1>Work life</h1>}
+                    {insightsState.insightIdDisplay === 2 && <h1>Career opportunities</h1>}
                     <h4>Taking into consideration the diverse passions and perspectives you've shared, it becomes clear that as an individual, you embody the following traits:</h4>
                     <p>
-                        1. {insightMainText}
+                        {insightsState.insightText}
                     </p>
                 </div>
             </div>

@@ -10,9 +10,10 @@ const MainChatBody = observer(() => {
 
     const chatLatestMessage = useRef()
 
-    const openInsight = (id) => {
-        insightsState.setInsightIdDisplay(id)
+    const openInsight = (id, text) => {
+        insightsState.setInsightIdDisplay(id);
         insightsState.setDisplayInsight(true);
+        insightsState.setInsightText(text);
     }
 
     useEffect(() => {
@@ -29,10 +30,16 @@ const MainChatBody = observer(() => {
                         ||
                         (data.message_type ==='insight' &&
                         <div key={index}>
-                            <div onClick={() => openInsight(data.message_id)}>
-                                <InsightChatBody text={data.message_text}/>
+                            <div onClick={() => openInsight(0, data.message_text[0])}>
+                                <InsightChatBody text={data.message_text[0]} type={0}/>
                             </div>
-                            {userState.isAuth === false && <MainChatSignIn />}
+                            <div onClick={() => openInsight(1, data.message_text[1])}>
+                                <InsightChatBody text={data.message_text[1]} type={1}/>
+                            </div>
+                            <div onClick={() => openInsight(2, data.message_text[2])}>
+                                <InsightChatBody text={data.message_text[2]} type={2}/>
+                            </div>
+                            {/* {userState.isAuth === false && <MainChatSignIn />} */}
                         </div>)
                     ))
                 }
